@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
     bakeries.to_json(include: :baked_goods)
   end
   get '/baked_goods/by_price' do 
-    bakeries = Bakery.order(:price)
+    bakeries = Bakery.all.order(price: :desc)
     bakeries.to_json
   end
 
